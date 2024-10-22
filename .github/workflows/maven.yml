@@ -27,9 +27,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: |
-        mvn -P xalan exec:java -Dexec.mainClass=org.apache.fop.cli.Main -Dexec.args="-fo input.fo -out application/X-fop-intermediate-format target/areatree_xalan.xml"
-        echo "$(<target/areatree_xalan.xml )"
-        mvn -P saxon exec:java -Dexec.mainClass=org.apache.fop.cli.Main -Dexec.args="-fo input.fo -out application/X-fop-intermediate-format target/areatree_saxon.xml"
-        echo "$(<target/areatree_saxon.xml )"
+    - name: Build with Xalan
+      run: mvn -P xalan exec:java -Dexec.mainClass=org.apache.fop.cli.Main -Dexec.args="-fo input.fo -out application/X-fop-intermediate-format target/areatree_xalan.xml"
+    - name: Build with Saxon
+      run: mvn -P saxon exec:java -Dexec.mainClass=org.apache.fop.cli.Main -Dexec.args="-fo input.fo -out application/X-fop-intermediate-format target/areatree_saxon.xml"
+    - name: Xalan Areatree Result
+      run: echo "$(<target/areatree_xalan.xml )"
+    - name: Saxon Areatree Result
+      run: echo "$(<target/areatree_saxon.xml )"
