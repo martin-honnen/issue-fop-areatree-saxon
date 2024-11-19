@@ -1,7 +1,17 @@
-# issue-fop-areatree-saxon
+# FOP/Saxon Issue with AreaTree
 
+This repository reconstructs an issue with Apache-FOP and Saxon. The case is:
 
-## The Error: An element name with a custom namespace is serialized without the required namespace declaration:
+* We generate the FOP areatree (using `application/X-fop-intermediate-format` as output format)
+* We have an element with a custom namespace in the FO input which shall be taken over to the areatree.
+
+The problem is that the namespace declaration is not serialized so the result areatree is not wellformed.
+
+Why this is an issue of FOP **OR** Saxon? 
+
+**Because with Xalan it works!** The open question is: is this a problem with Saxon or does FOP use an API in a wrong way?
+
+## The Error Details
 
 The [input.fo](./input.fo) contains inside of `fo:declaration` a `<pdf:catalog>`:
 
