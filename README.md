@@ -1,9 +1,9 @@
 # issue-fop-areatree-saxon
 
 
-## Error 1: An element name with a custom namespace is serialized without the required namespace declaration:
+## The Error: An element name with a custom namespace is serialized without the required namespace declaration:
 
-The input.fo contains an `fo:declaration`:
+The [input.fo](./input.fo) contains inside of `fo:declaration` a `<pdf:catalog>`:
 
 ```xml
 <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:fox="http://xmlgraphics.apache.org/fop/extensions">
@@ -123,9 +123,7 @@ startElement:386, ReceivingContentHandler (net.sf.saxon.event)
 
 It provides the `currentNamespaceMap` and creates a QName as element name and calls the receiver (`net.sf.saxon.event.SequenceNormalizer`) which calls the `net.sf.saxon.event.ProxyReceiver`.
 
-Inbetween there are two other levels but there does not happen very much. On the third level the `net.sf.saxon.event.NamespaceDifferencer` makes a diff from the new `namespaces` to the parent namespaces (`parentMap`).
-
-3 levels deeper:
+Inbetween there are two other levels but there does not happen very much. On the third level the `net.sf.saxon.event.NamespaceDifferencer` makes a diff from the new `namespaces` to the parent namespaces (`parentMap`):
 
 startElement:80, NamespaceDifferencer (net.sf.saxon.event)
 
