@@ -65,6 +65,7 @@ startElement:185, DelegatingContentHandler (org.apache.fop.util)
 
 ```
 
+(So the entry point of FOP -> Saxon is [here](https://github.com/apache/xmlgraphics-fop/blob/2f1858567a8d68bd9c09eb33955d2cbae2aa03ac/fop-core/src/main/java/org/apache/fop/util/DelegatingContentHandler.java#L185))
 
 ### Saxon Entry Point
 
