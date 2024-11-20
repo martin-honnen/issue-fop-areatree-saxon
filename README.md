@@ -26,7 +26,7 @@ The [input.fo](./input.fo) contains inside of `fo:declaration` a `<pdf:catalog>`
 
 ```
 
-The area tree result of FOP+Saxon looks like:
+The area tree [result of FOP+Saxon](https://github.com/nkutsche/issue-fop-areatree-saxon/actions/runs/11915871500/job/33207176196#step:7:15) looks like:
 
 ```xml
 <document xmlns="http://xmlgraphics.apache.org/fop/intermediate"
@@ -39,7 +39,7 @@ The area tree result of FOP+Saxon looks like:
 
 The declaration of prefix `pdf` is missing, so the result is **not wellformed**!
 
-If the areatree is generated with FOP+Xalan the result is wellformed:
+If the areatree is generated [with FOP+Xalan the result](https://github.com/nkutsche/issue-fop-areatree-saxon/actions/runs/11915871500/job/33207176196#step:6:10) is wellformed:
 
 ```xml
 <document xmlns="http://xmlgraphics.apache.org/fop/intermediate" version="2.0">
